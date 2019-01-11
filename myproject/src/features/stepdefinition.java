@@ -12,10 +12,10 @@ import cucumber.api.java.en.When;
 public class stepdefinition {
 	WebDriver driver = null;
 	
-	@When("^User navigates to google homepage$")
-	public void user_navigates_to_google_homepage() throws Throwable {
+	@When("^User navigates to site (.*com)$")
+	public void user_navigates_to_site_www_google_com(String url) throws Throwable {
 		driver = new FirefoxDriver();
-		driver.get("https://www.google.com/");
+		driver.get(url);
 		
 	}
 
@@ -25,10 +25,10 @@ public class stepdefinition {
 	    ImagesLink.click();
 	}
 	
-	@Then("^User types apple in the search field$")
-	public void user_types_apple_in_the_search_field() throws Throwable {
+	@Then("^User inputs (.*) in the search field$")
+	public void user_inputs_apple_in_the_search_field(String inputs) throws Throwable {
 	    WebElement searchfield = driver.findElement(By.name("q"));
-	    searchfield.sendKeys("apple");
+	    searchfield.sendKeys(inputs);
     }
 	
 	@Then("^User clicks on search icon$")
@@ -38,8 +38,8 @@ public class stepdefinition {
 	    
 	}
 
-	@Then("^Apple image search is complete$")
-	public void apple_iamge_search_is_complete() throws Throwable {
+	@Then("^image search is complete$")
+	public void image_search_is_complete() throws Throwable {
 	    
 	}
 }
